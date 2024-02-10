@@ -1,0 +1,61 @@
+{% extends 'emp_base.html'%}
+
+{% block main%}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'edit_myeducation'%}" class="btn btn-warning float-right btn-sm">Edit Education Detail</a>
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">My Education</h5>
+
+        <div class="container-fluid"> 
+            
+            <table class="table table border"> 
+                <th></th>
+                <th>Course</th>
+                <th>College/ University</th>
+                <th>Year of Passing</th>
+                <th>Percentage</th>
+
+                <tr>
+                    <th>Post Graduation</th>
+                    <td>{{education.coursepg}}</td>
+                    <td>{{education.schoolclgpg}}</td>
+                    <td>{{education.yearofpassingpg}}</td>
+                    <td>{{education.percentagepg}}</td>
+                </tr>
+                <tr> 
+                    <th>Under Graduation</th>
+                    <td>{{education.courseug}}</td>
+                    <td>{{education.schoolclgug}}</td>
+                    <td>{{education.yearofpassingug}}</td>
+                    <td>{{education.percentageug}}</td>
+                </tr>
+                <tr>
+                    <th>Senior Secondary School</th>
+                    <td>{{education.coursessc}}</td>
+                    <td>{{education.schoolclgssc}}</td>
+                    <td>{{education.yearofpassingssc}}</td>
+                    <td>{{education.percentagessc}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- {% if error == "no"%}
+<script>
+    alert('Profile Update Successful !!!');
+    // window.location = ('{% url 'emp_login' %}');
+    window.location = "{% url 'profile' %}";
+
+</script>
+{% endif %}
+
+{% if error == "yes"%}
+<script>
+    alert('Profile data update Unsuccessful !!!')
+</script>
+{% endif %} -->
+
+{% endblock%}

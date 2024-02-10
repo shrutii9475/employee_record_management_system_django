@@ -1,0 +1,92 @@
+{% extends 'emp_base.html'%}
+
+{% block main%}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'my_education'%}" class="btn btn-warning float-right btn-sm">View Education</a>
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Edit Education </h5>
+
+        <div class="container-fluid">
+            <form method="post">
+                {% csrf_token %}
+                <table class="table table border">
+                    <th>Post Graduation</th>
+                    <tr>
+                        <th>Course Name</th>
+                        <td><input type="text" name="coursepg" class="form-control" value="{{education.coursepg}}"></td>
+                    </tr>
+                    <tr>
+                        <th>College Name</th>
+                        <td><input type="text" name="schoolclgpg" class="form-control" value="{{education.schoolclgpg}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Year of passing</th>
+                        <td><input type="text" name="yearofpassingpg" class="form-control" value="{{education.yearofpassingpg}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Percentage</th>
+                        <td><input type="text" name="percentagepg" class="form-control" value="{{education.percentagepg}}">
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table border">
+                    <th>Under Graduation</th>
+                    <tr>
+                        <th>Course Name</th>
+                        <td><input type="text" name="courseug" class="form-control" value="{{education.courseug}}"></td>
+                    <tr>
+                        <th>College Name</th>
+                        <td><input type="text" name="schoolclgug" class="form-control" value="{{education.schoolclgug}}"></td>
+                    <tr>
+                        <th>Year of Passing</th>
+                        <td><input type="text" name="yearofpassingug" class="form-control" value="{{education.yearofpassingug}}">
+                        </td>
+                    <tr>
+                        <th>Percentage</th>
+                        <td><input type="text" name="percentageug" class="form-control" value="{{education.percentageug}}">
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table border">
+                    <th>Senior Secondary School</th>
+                    <tr>
+                        <th>Course Name</th>
+                        <td><input type="text" name="coursessc" class="form-control" value="{{education.coursessc}}">
+                        </td>
+                    <tr>
+                        <th>School Name</th>
+                        <td><input type="text" name="schoolclgssc" class="form-control" value="{{education.schoolclgssc}}"></td>
+                    <tr>
+                        <th>Year of passing</th>
+                        <td><input type="text" name="yearofpassingssc" class="form-control" value="{{education.yearofpassingssc}}">
+                        </td>
+                    <tr>
+                        <th>Percentage</th>
+                        <td><input type="text" name="percentagessc" class="form-control" value="{{education.percentagessc}}">
+                        </td>
+                    </tr>
+                </table>
+                <center><input type="submit" value="Submit" class="btn btn-primary px-3"></center>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% if error == "no"%}
+<script>
+    alert('Education Update Successful !!!');
+    window.location = "{% url 'my_education' %}";
+
+</script>
+{% endif %}
+
+{% if error == "yes"%}
+<script>
+    alert('Education data update Unsuccessful !!!')
+</script>
+{% endif %}
+
+{% endblock%}

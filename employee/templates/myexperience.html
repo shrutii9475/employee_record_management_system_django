@@ -1,0 +1,92 @@
+{% extends 'emp_base.html'%}
+
+{% block main%}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'edit_experience'%}" class="btn btn-warning float-right btn-sm">Edit Work Experience</a>
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">My Work Experience </h5>
+
+        <div class="container-fluid"> 
+            <!-- <table class="">
+                <tr>
+                    <th>First company name</th>
+                </tr>
+                <tr>
+                    <td>{{experience.c1name}}</td>
+                </tr>
+                <tr>
+                    <td>{{experience.c1designation}}</td>
+                </tr>
+                <tr>
+                    <td>{{experience.c1salary}}</td>
+                </tr>
+                <tr>
+                    <td>{{experience.c1duration}}</td>
+                </tr>
+                <tr>
+                    <th>second company name</th>
+                    <td>{{experience.c2name}}</td>
+                    <td>{{experience.c2designation}}</td>
+                    <td>{{experience.c2salary}}</td>
+                    <td>{{experience.c2duration}}</td>
+                </tr>
+                <tr>
+                    <th>Third company name</th>
+                    <td>{{experience.c3name}}</td>
+                    <td>{{experience.c3designation}}</td>
+                    <td>{{experience.c3salary}}</td>
+                    <td>{{experience.c3duration}}</td>
+                </tr>
+            </table> -->
+
+            <table class="table table border"> 
+                <th></th>
+                <th>Company Name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Duration</th>
+
+                <tr>
+                    <th>First company</th>
+                    <td>{{experience.c1name}}</td>
+                    <td>{{experience.c1designation}}</td>
+                    <td>{{experience.c1salary}}</td>
+                    <td>{{experience.c1duration}}</td>
+                </tr>
+                <tr> 
+                    <th>Second company</th>
+                    <td>{{experience.c2name}}</td>
+                    <td>{{experience.c2designation}}</td>
+                    <td>{{experience.c2salary}}</td>
+                    <td>{{experience.c2duration}}</td>
+                </tr>
+                <tr>
+                    <th>Third company</th>
+                    <td>{{experience.c3name}}</td>
+                    <td>{{experience.c3designation}}</td>
+                    <td>{{experience.c3salary}}</td>
+                    <td>{{experience.c3duration}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- {% if error == "no"%}
+<script>
+    alert('Profile Update Successful !!!');
+    // window.location = ('{% url 'emp_login' %}');
+    window.location = "{% url 'profile' %}";
+
+</script>
+{% endif %}
+
+{% if error == "yes"%}
+<script>
+    alert('Profile data update Unsuccessful !!!')
+</script>
+{% endif %} -->
+
+{% endblock%}

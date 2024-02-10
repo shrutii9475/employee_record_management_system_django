@@ -1,0 +1,94 @@
+{% extends 'emp_base.html'%}
+
+{% block main%}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'my_experience'%}" class="btn btn-warning float-right btn-sm">View Work Experience</a>
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Edit Work Experience </h5>
+
+        <div class="container-fluid">
+            <form method="post">
+                {% csrf_token %}
+                <table class="table table border">
+                    <th>First company</th>
+                    <tr>
+                        <th>Company Name</th>
+                        <td><input type="text" name="c1name" class="form-control" value="{{experience.c1name}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Designation</th>
+                        <td><input type="text" name="c1designation" class="form-control"
+                                value="{{experience.c1designation}}"></td>
+                    </tr>
+                    <tr>
+                        <th>Salary</th>
+                        <td><input type="text" name="c1salary" class="form-control" value="{{experience.c1salary}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Duration</th>
+                        <td><input type="text" name="c1duration" class="form-control" value="{{experience.c1duration}}">
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table border">
+                    <th>Second company</th>
+                    <tr>
+                        <th>Company Name</th>
+                        <td><input type="text" name="c2name" class="form-control" value="{{experience.c2name}}"></td>
+                    <tr>
+                        <th>Designation</th>
+                        <td><input type="text" name="c2designation" class="form-control"
+                                value="{{experience.c2designation}}"></td>
+                    <tr>
+                        <th>Salary</th>
+                        <td><input type="text" name="c2salary" class="form-control" value="{{experience.c2salary}}">
+                        </td>
+                    <tr>
+                        <th>Duration</th>
+                        <td><input type="text" name="c2duration" class="form-control" value="{{experience.c2duration}}">
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table border">
+                    <th>Third company</th>
+                    <tr>
+                        <th>Company Name</th>
+                        <td><input type="text" name="c3name" class="form-control" value="{{experience.c3name}}"></td>
+                    <tr>
+                        <th>Designation</th>
+                        <td><input type="text" name="c3designation" class="form-control"
+                                value="{{experience.c3designation}}"></td>
+                    <tr>
+                        <th>Salary</th>
+                        <td><input type="text" name="c3salary" class="form-control" value="{{experience.c3salary}}">
+                        </td>
+                    <tr>
+                        <th>Duration</th>
+                        <td><input type="text" name="c3duration" class="form-control" value="{{experience.c3duration}}">
+                        </td>
+                    </tr>
+                </table>
+                <center><input type="submit" value="Submit" class="btn btn-primary px-3"></center>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% if error == "no"%}
+<script>
+    alert('Experience Update Successful !!!');
+    window.location = "{% url 'my_experience' %}";
+
+</script>
+{% endif %}
+
+{% if error == "yes"%}
+<script>
+    alert('Experience data update Unsuccessful !!!')
+</script>
+{% endif %}
+
+{% endblock%}

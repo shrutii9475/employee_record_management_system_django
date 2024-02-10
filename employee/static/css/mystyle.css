@@ -1,0 +1,15 @@
+/* .nav-link{
+    color:white !important;
+} */
+
+.nav-link:hover{
+    /* color:yellow !important;
+    background-color: rgb(250, 51, 51); */
+    color:#435055 !important;
+    background-color: #29A19C;
+    border-radius: 15px;
+}
+
+.navbar-brand{
+    font-weight:bold;
+}
