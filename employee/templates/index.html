@@ -1,2 +1,103 @@
+{%load static%}
 {%include 'header.html' %}
-employee record management index page
+<!-- employee record management index page -->
+
+<main>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/c1.jpg'%}" alt="image1" width="100%" height="500">
+                <!-- width="1100" height="500" -->
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/c2.jpg'%}" alt="image2" width="100%" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/c3.jpg'%}" alt="image3" width="100%" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/c4.jpg'%}" alt="image4" width="100%" height="500">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</main>
+
+<footer>
+    <div class="container-fluid text-center py-3 bg-dark text-white">
+        <h2>Employee Record Management System</h2>
+        <br><br><br>
+        <!-- <a href="/homepage">HomePage</a> -->
+        <!-- <div class="container-fluid">
+            <ul>
+                <li><p><a href="#">About Us</a></p></li>
+                <li><p><a href="#">Contact</a></p></li>
+                <li><p><a href="#">Contact</a></p></li>
+                <li><p><a href="#">Contact</a></p></li>
+                <li><p><a href="#">Contact</a></p></li>
+            </ul>
+        </div> -->
+        <p style="justify-content: center">© 2024. Shruti Singh. All Rights Reserved.</p>
+        <div class="container-fluid" style="max-width: 500px">
+            <div class="row">
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <p><a href="#">Disclaimer</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <p><a href="#">About Us</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul class="list-unstyled">
+                        <li>
+                            <p><a href="#">Contact</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <p><a href="#">Policies</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <p><a href="#">Sitemap</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</footer>
