@@ -101,7 +101,26 @@ def profile(request):
     return render(request, 'profile.html', locals())
 
 def admin_login(request):
-    return render(request,'admin_login.html')
+    error=""
+    if request.method == 'POST':
+        user = request.POST['username']
+        passw = request.POST['pwd']
+        user = authenticate(username=user,password=passw)
+        try:
+            if user.is_staff:
+                login(request, user)
+                error = "no"
+            else:
+                error = "yes"
+        except:
+            error="yes"
+    return render(request,'admin_login.html', locals())
+
+def admin_home(request):
+    # open only when user is logged in.
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    return render(request,'admin_home.html')
 
 def my_experience(request):
     # open only when user is logged in.
@@ -115,7 +134,7 @@ def my_experience(request):
     except EmployeeExperience.DoesNotExist:
         # Handle the case where the EmployeeDetail does not exist
         raise Http404("Employee Experience does not exist for this user.")
-    return render(request, 'myexperience.html', locals())
+    return render(request, 'my_experience.html', locals())
 
 def edit_experience(request):
 
@@ -183,7 +202,7 @@ def my_education(request):
     except EmployeeEducation.DoesNotExist:
         # Handle the case where the EmployeeDetail does not exist
         raise Http404("Employee Education does not exist for this user.")
-    return render(request, 'myeducation.html', locals())
+    return render(request, 'my_education.html', locals())
 
 def edit_myeducation(request):
     
@@ -247,5 +266,88 @@ def change_password(request):
     
     error = ""
     user = request.user
-    
+
+    if request.method == "POST":
+        curpass = request.POST['currentpassword']
+        newpass = request.POST['newpassword']
+        # cnfp =request.POST['confirmnewpassword']
+        try:
+            if user.check_password(curpass):
+                # if password match the db
+                user.set_password(newpass)
+                user.save()
+                error = "no"     
+            else:
+                error = "not"
+                # pass doesnot match the database
+        except:
+            error = "yes"
+        
+        # try:
+        #     # checking for password match
+        #     if newpass != cnfp or newpass == curpass:
+        #         error = "password does not match"
+        #     else:
+        #         # if current password match the psw in database
+        #         if user.check_password(curpass):
+        #             # pass is set new to the n varible
+        #             user.set_password(newpass)
+        #             user.save()
+        #             error = "no"
+        #         else:
+        #             error = "wrong current password"
+        # except:
+        #     error = "yes"
+
     return render(request, 'change_password.html', locals())
+
+def change_passwordadmin(request):
+    # open only when user is logged in.
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    
+    error = ""
+    user = request.user
+
+    if request.method == "POST":
+        curpass = request.POST['currentpassword']
+        newpass = request.POST['newpassword']
+        # cnfp =request.POST['confirmnewpassword']
+        try:
+            if user.check_password(curpass):
+                # if password match the db
+                user.set_password(newpass)
+                user.save()
+                error = "no"     
+            else:
+                error = "not"
+                # pass doesnot match the database
+        except:
+            error = "yes"
+        
+        # try:
+        #     # checking for password match
+        #     if newpass != cnfp or newpass == curpass:
+        #         error = "password does not match"
+        #     else:
+        #         # if current password match the psw in database
+        #         if user.check_password(curpass):
+        #             # pass is set new to the n varible
+        #             user.set_password(newpass)
+        #             user.save()
+        #             error = "no"
+        #         else:
+        #             error = "wrong current password"
+        # except:
+        #     error = "yes"
+
+    return render(request, 'change_passwordadmin.html', locals())
+
+def all_employee(request):
+    # open only when user is logged in.
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    employee = EmployeeDetail.objects.all()
+
+    return render(request, 'all_employee.html', locals())
